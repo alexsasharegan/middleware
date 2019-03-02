@@ -5,7 +5,7 @@ import * as bytes from "fmt-bytes";
 import { RequestId } from "./RequestId";
 import * as time from "./time";
 
-export enum NewLine {
+enum NewLine {
 	/**
 	 * Linux/Mac style new line.
 	 */
@@ -165,6 +165,8 @@ export class RequestLog {
 			next();
 		};
 	}
+
+	public static NewLine = NewLine;
 }
 
 /**
