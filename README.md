@@ -22,7 +22,7 @@ If you need to make use of the id for something like writing it in response head
 app.get("/", function(req, res) {
 	// You can extract from either the request/response.
 	let requestId = RequestId.extract(req);
-	res.header.set("X-Request-ID", requestId.toString());
+	res.setHeader("X-Request-ID", requestId.toString());
 	res.end();
 });
 ```
@@ -45,4 +45,19 @@ app.use(
 		stream: process.stderr, // log to any stream
 	})
 );
+```
+
+![request log example](./docs/request-log.jpeg)
+
+```sh
+$ curl -I localhost:3333
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+X-Request-ID: alex-oryx/aMzi8qbV9t-000003
+Content-Type: text/html; charset=utf-8
+Content-Length: 210
+ETag: W/"d2-GN0jX1nIvHaoCqXqmz8Mk80JF74"
+Date: Sat, 02 Mar 2019 15:50:53 GMT
+Connection: keep-alive
 ```
