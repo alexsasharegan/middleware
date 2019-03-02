@@ -1,0 +1,27 @@
+{
+	"name": "@alexsasharegan/middleware",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "rm -Rf lib; tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Alex Regan <alex.joseph.regan@gmail.com>",
+	"license": "MIT",
+	"peerDependencies": {
+		"express": "latest"
+	},
+	"devDependencies": {
+		"@types/express": "^4.16.1",
+		"@types/node": "^11.9.6",
+		"prettier": "^1.16.4",
+		"standard-version": "^5.0.1",
+		"typescript": "^3.3.3333"
+	},
+	"dependencies": {
+		"chalk": "^2.4.2",
+		"fmt-bytes": "^1.0.2"
+	}
+}
