@@ -1,7 +1,7 @@
 {
 	"name": "@alexsasharegan/middleware",
 	"version": "1.0.0",
-	"description": "",
+	"description": "A set of custom middleware.",
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "rm -Rf lib; tsc",
@@ -11,7 +11,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "Alex Regan <alex.joseph.regan@gmail.com>",
+	"author": "Alex Regan <npm@33mail.alexregan.com>",
 	"license": "MIT",
 	"peerDependencies": {
 		"express": "latest"
