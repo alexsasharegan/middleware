@@ -2,7 +2,7 @@
 	"name": "@alexsasharegan/middleware",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"scripts": {
 		"build": "rm -Rf lib; tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -14,12 +14,12 @@
 		"express": "latest"
 	},
 	"devDependencies": {
-		"@types/express": "^4.16.1",
-		"@types/node": "^11.9.6",
-		"express": "^4.16.4",
-		"prettier": "^1.16.4",
-		"standard-version": "^5.0.1",
-		"typescript": "^3.3.3333"
+		"@types/express": "^4.17.1",
+		"@types/node": "^11.13.20",
+		"express": "^4.17.1",
+		"prettier": "^1.18.2",
+		"standard-version": "^5.0.2",
+		"typescript": "^3.6.3"
 	},
 	"dependencies": {
 		"chalk": "^2.4.2",
