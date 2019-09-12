@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from "express";
 /**
  * RequestID is a middleware that injects a request ID into the context of each
  * request. A request ID is a string of the form `"host.example.com/random-000001"`,
- * where "random" is a base64 random string that uniquely identifies this process,
+ * where "random" is a base62 random string that uniquely identifies this process,
  * and where the last number is an atomically incremented request counter.
  */
 export class RequestId {
