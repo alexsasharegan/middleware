@@ -45,6 +45,18 @@ export class RequestId {
 		next();
 	}
 
+	public static setHeaderMiddleware(req: Request, res: Response, next: NextFunction) {
+		let id = RequestId.extract(req);
+		if (!id) {
+			throw new Error(
+				`The request id hasn't been injected yet. Please add the RequestId.injectMiddleware before this middleware.`
+			);
+		}
+
+		res.setHeader(RequestId.headerName, id.toString());
+		next();
+	}
+
 	/**
 	 * Given a request or a response object, extracts the injected request id.
 	 * This requires the `injectMiddleware` to have been placed upstream.
@@ -54,6 +66,11 @@ export class RequestId {
 		// @ts-ignore
 		return reqOrRes[RequestId.kRequestId];
 	}
+
+	/**
+	 * Change this if you want to configure a custom header for your request id.
+	 */
+	public static headerName = "X-Request-ID";
 
 	/**
 	 * The hostname as defined by the operating system.
