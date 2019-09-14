@@ -4,6 +4,7 @@ const { RequestId, RequestLog } = require("../lib");
 const app = express();
 app.use(
 	RequestId.injectMiddleware,
+	RequestId.setHeaderMiddleware,
 	RequestLog.middleware({
 		newLine: RequestLog.NewLine.LF,
 		stream: process.stderr,
@@ -12,7 +13,6 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-	res.setHeader("X-Request-ID", RequestId.extract(req).toString());
 	res.send(`<!DOCTYPE html>
 <html lang="en">
 <head>
