@@ -4,6 +4,10 @@ A collection of express/connect middleware.
 
 ## Exports
 
+- `RequestId`: Class for adding request ids.
+- `RequestLog`: Class for logging requests.
+- `RequestLogOptions`: [TypeScript] Configuration parameters for the RequestLog middleware.
+
 ### `RequestId`
 
 A class to uniquely id incoming requests. Use the inject middleware at the beginning of your stack.
@@ -13,7 +17,13 @@ import express from "express";
 import { RequestId } from "@alexsasharegan/middleware";
 
 const app = express();
+// This middleware injects a request id in both the request/response objects.
+// It does not set any headers.
 app.use(RequestId.injectMiddleware);
+// This sets the request id on the response header.
+app.use(RequestId.setHeaderMiddleware);
+// This is the default header name used. Customize it to use a different name.
+RequestId.headerName = "X-Request-ID";
 ```
 
 If you need to make use of the id for something like writing it in response headers, an extract method is available:
@@ -37,7 +47,13 @@ import express from "express";
 import { RequestId, RequestLog } from "@alexsasharegan/middleware";
 
 const app = express();
+
+// Set up the request id injector to enable request ids in the logs.
 app.use(RequestId.injectMiddleware);
+app.use(RequestId.setHeaderMiddleware);
+
+// Make sure to place this after the request id middleware,
+// but at the beginning of the middleware chain to get accurate timing.
 app.use(
 	RequestLog.middleware({
 		withColors: true, // tty color output
