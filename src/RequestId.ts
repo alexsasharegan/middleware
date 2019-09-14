@@ -50,7 +50,7 @@ export class RequestId {
 	 * This requires the `injectMiddleware` to have been placed upstream.
 	 * No runtime checks are executed to ensure request id was previously set.
 	 */
-	public static extract(reqOrRes: Request | Response): RequestId {
+	public static extract(reqOrRes: Request | Response): undefined | RequestId {
 		// @ts-ignore
 		return reqOrRes[RequestId.kRequestId];
 	}

@@ -29,7 +29,7 @@ export class RequestLog {
 	protected uri = "";
 	protected method = "";
 	protected statusCode = 0;
-	protected requestId: RequestId;
+	protected requestId: undefined | RequestId;
 	protected httpVersion = "HTTP/";
 	protected ipAddr = "";
 	protected contentLength = "0";
@@ -88,7 +88,7 @@ export class RequestLog {
 			precision: 1,
 		});
 		let dt = this.fmtDate(this.incomingDate);
-		let reqId = `[${this.requestId}]`;
+		let reqId = `[${this.requestId == null ? "" : this.requestId.toString()}]`;
 		let quote = `"`;
 
 		if (this.withColors) {
