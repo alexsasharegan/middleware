@@ -25,7 +25,7 @@
 		"@types/node": "^11.13.20",
 		"express": "^4.17.1",
 		"prettier": "^1.18.2",
-		"standard-version": "^5.0.2",
+		"standard-version": "^8.0.1",
 		"typescript": "^3.6.3"
 	},
 	"dependencies": {
